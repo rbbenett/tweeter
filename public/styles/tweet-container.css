@@ -1,3 +1,9 @@
 .tweet-container {
   padding: 32px;
+  border: 10px;
+  border-color: black;
+}
+
+article header img {
+  flex-shrink: 10;
 }
