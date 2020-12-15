@@ -1,9 +1,28 @@
 nav {
-  font-family: 'Bungee', cursive;
   height: 120px;
   width: 100%;
   background-color: #4056A1;
-  color: #FFFFFF;
   margin: 0;
   padding: 1.5em;
+}
+
+span.nav-text {
+  font-family: 'Bungee', cursive;
+  color: #FFFFFF;
+}
+
+div.write-tweet.nav-text {
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #FFFFFF;
+}
+
+i.fas {
+display:flex;
+flex-direction: column;
+text-align: end;
+color: red;
+padding-right: 75px;
 }
