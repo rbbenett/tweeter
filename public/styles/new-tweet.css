@@ -27,9 +27,14 @@ button {
 
 output.counter {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: 120px;
+  bottom: 70px;
   font-size: 80%;
   padding: 10px;
   font-family: 'Bungee', cursive;
+  color: #545149
+}
+
+output.negChars {
+  color: red;
 }
