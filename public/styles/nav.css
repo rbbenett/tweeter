@@ -1,4 +1,7 @@
 nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   height: 120px;
   width: 100%;
   background-color: #4056A1;
@@ -11,10 +14,8 @@ span.nav-text {
   color: #FFFFFF;
 }
 
-div.write-tweet.nav-text {
-  display: flex;
-  flex-direction: column;
-  text-align: end;
+div.write-tweet {
+  align-self: flex-end;
   font-family: 'Source Sans Pro', sans-serif;
   color: #FFFFFF;
 }

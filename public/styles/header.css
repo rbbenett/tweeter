@@ -7,3 +7,7 @@ header {
   background-color: #feb236;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 }
+
+header > div > h2 > span {
+  font-weight: 500;
+}
