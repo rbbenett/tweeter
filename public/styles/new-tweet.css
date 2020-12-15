@@ -28,7 +28,6 @@ button {
 output.counter {
   position: absolute;
   right: 120px;
-  bottom: 70px;
   font-size: 80%;
   padding: 10px;
   font-family: 'Bungee', cursive;
