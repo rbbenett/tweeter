@@ -8,6 +8,12 @@ $(document).ready(function () {
 
   const tweetData = [];
 
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
  const createTweetElement = (tweetData) => {
   const user = tweetData.user;
   let date = tweetData.created_at;
@@ -20,7 +26,7 @@ $(document).ready(function () {
   <h2 class="user-tag">${user.handle}</h2>
   </header>
   <div class="tweet-content">
-  <p>${tweetData.content["text"]}</p>
+  <p>${escape(tweetData.content["text"])}</p>
   </div>
   <footer>
   <p>${new Date(date).toDateString()}</p>
