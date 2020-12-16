@@ -40,18 +40,16 @@ $(document).ready(function () {
     $('.tweet-wrap').append(createTweetElement(tweet));
   }
 };
-  renderTweets(tweetData);
 
  $('.tweet-form').on('submit', function(event) {
   event.preventDefault();
-  console.log('Submit!');
-  console.log($(this).serialize());
   $.ajax({method: 'POST',
           url: '/tweets',
         data: $(this).serialize(),
       })
       .then(function () {
         loadTweets();
+        $('.tweet-wrap').empty();
         })
       .catch((err) => window.alert("TWEET FIELD IS EMPTY!"));
       $(this).children('textarea').val('');

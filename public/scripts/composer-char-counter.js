@@ -5,7 +5,7 @@ $(document).ready(function() {
     $(this).siblings("output").text(remainingChar);
     if (remainingChar < 0) {
       $(this).siblings("output").addClass("negChars");
-      window.alert("Too Many Characters!")
+      window.alert("TOO MANY CHARACTERS!")
     } else {
       $(this).siblings("output").removeClass("negChars");
     }
