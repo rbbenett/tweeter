@@ -5,13 +5,14 @@
  */
 
 $(document).ready(function () {
-  // const loadTweets = function() {
-  //   $.ajax({method: 'GET',
-  //           url: '/tweets'})
-  //           .then(function(data) {
-  //             renderTweets(data);
-  //           })
-  // };
+  
+  const loadTweets = function() {
+    $.ajax({method: 'GET',
+            url: '/tweets'})
+            .then(function(data) {
+              renderTweets(data);
+            })
+  };
 
   const tweetData = [
     {
@@ -73,4 +74,17 @@ $(document).ready(function () {
 
  renderTweets(tweetData);
 
+ $('.tweet-form').on('submit', function(event) {
+  event.preventDefault();
+  console.log('Submit!');
+  console.log($(this).serialize());
+  $.ajax({method: 'POST',
+          url: '/tweets',
+        data: $(this).serialize(),
+      })
+  .then((data) => {
+    console.log('Sucess: ', data);
+    renderTweets(data);
+  })
+});
 });
