@@ -2,7 +2,6 @@
   border-radius: 5px;
   padding-top: 1px;
   background-color: #f4f1ec;
-  margin: 0 2em;
   align-items: center;
 }
 
@@ -11,6 +10,7 @@
   background-color: #f4f1ec;
   border: solid red;
   border-width: 3px;
+  margin: auto;
 }
 
 .alert p {
@@ -20,6 +20,7 @@
   background-color: #f4f1ec;
   font-weight: 700;
   color: red;
+  margin: auto;
 }
 
 .new-tweet h2{
@@ -41,11 +42,13 @@ button {
   font-family: 'Bungee', cursive;
 }
 
+.tweet-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
 output.counter {
-  position: absolute;
-  right: 120px;
   font-size: 80%;
-  padding: 10px;
   font-family: 'Bungee', cursive;
   color: #545149
 }

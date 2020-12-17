@@ -41,7 +41,7 @@ $(document).ready(function() {
 
   const renderTweets = tweetData => {
     for (let tweet of tweetData) {
-      $('.tweet-wrap').append(createTweetElement(tweet));
+      $('.tweet-wrap').prepend(createTweetElement(tweet));
     }
   };
 

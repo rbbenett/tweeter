@@ -1,10 +1,8 @@
 nav {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   height: 120px;
   background-color: #4056A1;
-  margin: 0;
   padding: 1.5em;
   position: fixed;
   top: 0px;
@@ -28,4 +26,10 @@ flex-direction: column;
 text-align: end;
 color: red;
 padding-right: 75px;
+}
+
+@media all and (max-width: 768px) {
+  nav {background-color: #feb236;
+  background-image: url(/images/asfalt-dark.png);
+  }
 }
