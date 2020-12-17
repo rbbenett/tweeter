@@ -6,6 +6,18 @@
   align-items: center;
 }
 
+.alert {
+  display: none;
+  text-align: center;
+  border: solid red;
+  border-width: 3px;
+}
+
+.alert p {
+  color: red;
+}
+
+
 .new-tweet h2{
  margin: 10px;
 }

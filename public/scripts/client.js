@@ -57,7 +57,7 @@ $(document).ready(function () {
         loadTweets();
         $('.tweet-wrap').empty();
         })
-      .catch((err) => window.alert("TWEET FIELD IS EMPTY!"));
+      .catch((err) => $("#empty-alert").slideDown("fast"));
       $(this).children('textarea').val('');
       $(this).children('output').val('140');
 

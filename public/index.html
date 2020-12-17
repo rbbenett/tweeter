@@ -51,6 +51,8 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <div id="length-alert" class="alert"><p>Too long. Plz rspct our arbitrary limit of 140 chars. #kthxbye</p></div>
+        <div id="empty-alert" class="alert"><p>This field needs to say something.</p></div>
         <h2>Compose Tweet</h2>
         <form class="tweet-form" action="/tweets/" method="POST" >
           <textarea id="tweet-text" name="text" placeholder="What are you humming about?"></textarea>
