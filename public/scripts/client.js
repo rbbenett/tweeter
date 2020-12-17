@@ -68,4 +68,19 @@ $(document).ready(function() {
       });
   };
 
+  $("#new-tweet-header").on("mouseover", function(event) {
+    $(this).css("cursor", "pointer");
+  });
+
+  $("#new-tweet-header").on("click", function(event) {
+    $(this)
+      .parent()
+      .parent()
+      .siblings(".container")
+      .children(".new-tweet")
+      .slideToggle("fast", function(){
+        $("#tweet-text").focus();
+    });
+  });
+
 });
