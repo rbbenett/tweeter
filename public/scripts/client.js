@@ -4,9 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-$(document).ready(function () {
-
-  const tweetData = [];
+$(document).ready(function() {
 
   const escape =  function(str) {
     let div = document.createElement('div');
@@ -14,10 +12,10 @@ $(document).ready(function () {
     return div.innerHTML;
   };
 
- const createTweetElement = (tweetData) => {
-  const user = tweetData.user;
-  let date = tweetData.created_at;
-  let $tweet = `<article class="tweet-container">
+  const createTweetElement = (tweetData) => {
+    const user = tweetData.user;
+    let date = tweetData.created_at;
+    let $tweet = `<article class="tweet-container">
   <header class="tweet-header">
   <div>
   <img class="avatar" src=${user.avatars}>
@@ -36,39 +34,38 @@ $(document).ready(function () {
   <i class="fa fa-heart" aria-hidden="true"></i>
   </span>
   </footer>
-  </article>`
+  </article>`;
 
-  return $tweet;
- };
+    return $tweet;
+  };
 
- const renderTweets = tweetData => {
-  for (let tweet of tweetData){
-    $('.tweet-wrap').append(createTweetElement(tweet));
-  }
-};
+  const renderTweets = tweetData => {
+    for (let tweet of tweetData) {
+      $('.tweet-wrap').append(createTweetElement(tweet));
+    }
+  };
 
- $('.tweet-form').on('submit', function(event) {
-  event.preventDefault();
-  $.ajax({method: 'POST',
-          url: '/tweets',
-        data: $(this).serialize(),
-      })
-      .then(function () {
+  $('.tweet-form').on('submit', function(event) {
+    event.preventDefault();
+    $.ajax({method: 'POST',
+      url: '/tweets',
+      data: $(this).serialize(),
+    })
+      .then(function() {
         loadTweets();
         $('.tweet-wrap').empty();
-        })
+      })
       .catch((err) => $("#empty-alert").slideDown("fast"));
-      $(this).children('textarea').val('');
-      $(this).children('output').val('140');
+    $(this).children('textarea').val('');
+    $(this).children('output').val('140');
+  });
 
-});
-
-const loadTweets = function() {
-  $.ajax({method: 'GET',
-          url: '/tweets'})
-          .then(function(data) {
-            renderTweets(data);
-          })
-};
+  const loadTweets = function() {
+    $.ajax({method: 'GET',
+      url: '/tweets'})
+      .then(function(data) {
+        renderTweets(data);
+      });
+  };
 
 });
