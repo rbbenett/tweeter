@@ -47,6 +47,10 @@ article.tweet-container {
   visibility: hidden;
 }
 
+.tweet-icons{
+  visibility: hidden;
+}
+
 .tweet-container footer {
   display:flex;
   justify-content: space-between;
@@ -57,7 +61,11 @@ article.tweet-container {
   margin-top:0px;
 }
 
-.tweet-container:hover .user-tag {
+.tweet-container:hover .tweet-icons{
+  visibility: visible;
+}
+
+.tweet-container:hover .user-tag{
   color: solid gray 2px;
   visibility: visible;
 }

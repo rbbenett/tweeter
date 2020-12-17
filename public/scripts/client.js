@@ -28,7 +28,7 @@ $(document).ready(function() {
   </div>
   <footer>
   <p>${new Date(date).toDateString()}</p>
-  <span>
+  <span class="tweet-icons">
   <i class="fa fa-flag" aria-hidden="true"></i>
   <i class="fa fa-retweet" aria-hidden="true"></i>
   <i class="fa fa-heart" aria-hidden="true"></i>
@@ -44,7 +44,7 @@ $(document).ready(function() {
       $('.tweet-wrap').prepend(createTweetElement(tweet));
     }
   };
-
+ 
   $('.tweet-form').on('submit', function(event) {
     event.preventDefault();
     $.ajax({method: 'POST',
@@ -57,7 +57,7 @@ $(document).ready(function() {
       })
       .catch((err) => $("#empty-alert").slideDown("fast"));
     $(this).children('textarea').val('');
-    $(this).children('output').val('140');
+    $(this).children('div').children('output').val('140');
   });
 
   const loadTweets = function() {
@@ -78,9 +78,9 @@ $(document).ready(function() {
       .parent()
       .siblings(".container")
       .children(".new-tweet")
-      .slideToggle("fast", function(){
+      .slideToggle("fast", function() {
         $("#tweet-text").focus();
-    });
+      });
   });
 
 });
