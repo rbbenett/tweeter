@@ -3,7 +3,7 @@ $(document).ready(function() {
   const updateCharCount = function() {
     let remainingChar = 140 - $(this).val().length;
     $(this).siblings("output").text(remainingChar);
-    if (remainingChar < 140 && remainingChar > 0) {
+    if (remainingChar < 140 && remainingChar >= 0) {
       $("#empty-alert").slideUp("fast");
     };
      if (remainingChar < 0) {
