@@ -39,7 +39,8 @@
           <i class="fas fa-angle-double-down"></i>
       </div>
     </nav>
-
+    
+    <!-- Main Profile Picture -->
     <header class="main">
       <div>
         <img src="/images/profile-hex.png">
@@ -53,8 +54,10 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <!-- Alert Messages -->
         <div id="length-alert" class="alert"><p><img src="/images/caution-icon-small.png">  Too long. Plz rspct our arbitrary limit of 140 chars! <img src="/images/caution-icon-small.png"></p></div>
         <div id="empty-alert" class="alert"><p><img src="/images/caution-icon-small.png">  This field needs to say something!  <img src="/images/caution-icon-small.png"></p></div>
+        <!-- New Tweet Form -->
         <h2>Compose Tweet</h2>
         <form class="tweet-form" action="/tweets/" method="POST" >
           <textarea id="tweet-text" name="text" placeholder="What are you humming about?"></textarea>

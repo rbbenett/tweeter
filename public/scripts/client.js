@@ -5,13 +5,13 @@
  */
 
 $(document).ready(function() {
-
+// Escape Function for Non String Entries
   const escape =  function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-
+// New Tweet Creation Function
   const createTweetElement = (tweetData) => {
     const user = tweetData.user;
     let date = tweetData.created_at;
@@ -38,13 +38,13 @@ $(document).ready(function() {
 
     return $tweet;
   };
-
+// New Tweet Rendering
   const renderTweets = tweetData => {
     for (let tweet of tweetData) {
       $('.tweet-wrap').prepend(createTweetElement(tweet));
     }
   };
- 
+// Tweet Submission via AJAX and Event Handler In Case Of Errors
   $('.tweet-form').on('submit', function(event) {
     event.preventDefault();
     $.ajax({method: 'POST',
@@ -59,7 +59,7 @@ $(document).ready(function() {
     $(this).children('textarea').val('');
     $(this).children('div').children('output').val('140');
   });
-
+// New Tweet Loads to Main Page via AJAX
   const loadTweets = function() {
     $.ajax({method: 'GET',
       url: '/tweets'})
@@ -67,7 +67,7 @@ $(document).ready(function() {
         renderTweets(data);
       });
   };
-
+// Form Toggle Button using "Write a new tweet"
   $("#new-tweet-header").on("mouseover", function(event) {
     $(this).css("cursor", "pointer");
   });
