@@ -8,15 +8,19 @@
 
 .alert {
   display: none;
-  text-align: center;
+  background-color: #f4f1ec;
   border: solid red;
   border-width: 3px;
 }
 
 .alert p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f1ec;
+  font-weight: 700;
   color: red;
 }
-
 
 .new-tweet h2{
  margin: 10px;
