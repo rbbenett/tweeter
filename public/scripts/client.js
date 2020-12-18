@@ -11,6 +11,7 @@ $(document).ready(function() {
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
+  
 // New Tweet Creation Function
   const createTweetElement = (tweetData) => {
     const user = tweetData.user;
@@ -38,12 +39,14 @@ $(document).ready(function() {
 
     return $tweet;
   };
+
 // New Tweet Rendering
   const renderTweets = tweetData => {
     for (let tweet of tweetData) {
       $('.tweet-wrap').prepend(createTweetElement(tweet));
     }
   };
+
 // Tweet Submission via AJAX and Event Handler In Case Of Errors
   $('.tweet-form').on('submit', function(event) {
     event.preventDefault();
@@ -59,6 +62,7 @@ $(document).ready(function() {
     $(this).children('textarea').val('');
     $(this).children('div').children('output').val('140');
   });
+
 // New Tweet Loads to Main Page via AJAX
   const loadTweets = function() {
     $.ajax({method: 'GET',
@@ -67,6 +71,7 @@ $(document).ready(function() {
         renderTweets(data);
       });
   };
+
 // Form Toggle Button using "Write a new tweet"
   $("#new-tweet-header").on("mouseover", function(event) {
     $(this).css("cursor", "pointer");
@@ -81,6 +86,14 @@ $(document).ready(function() {
       .slideToggle("fast", function() {
         $("#tweet-text").focus();
       });
+  });
+
+  // Enter Key submits tweet text
+  $("#tweet-text").keypress(function (e) {
+    if(e.which == 13 && !e.shiftKey) {        
+      $(this).closest("form").submit();
+        e.preventDefault();
+    }
   });
 
 });
