@@ -8,7 +8,6 @@ $(document).ready(function() {
     }
     if (remainingChar < 0) {
       $(this).siblings(".tweet-footer").children("output").addClass("negChars");
-      $("#length-alert").slideDown("fast");
     } else {
       $(this).siblings(".tweet-footer").children("output").removeClass("negChars");
       $("#length-alert").slideUp("fast");

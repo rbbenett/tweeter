@@ -11,6 +11,17 @@ $(document).ready(function() {
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
+
+  // New Tweet Loads to Main Page via AJAX
+  const loadTweets = function() {
+    $.ajax({method: 'GET',
+      url: '/tweets'})
+      .then(function(data) {
+        renderTweets(data);
+      });
+  };
+
+  loadTweets();
   
 // New Tweet Creation Function
   const createTweetElement = (tweetData) => {
@@ -50,6 +61,9 @@ $(document).ready(function() {
 // Tweet Submission via AJAX and Event Handler In Case Of Errors
   $('.tweet-form').on('submit', function(event) {
     event.preventDefault();
+    const textArea = ".new-tweet textarea";
+    let remainingChar = 140 - $(textArea).val().length;
+    if (remainingChar < 140 && remainingChar >= 0) {
     $.ajax({method: 'POST',
       url: '/tweets',
       data: $(this).serialize(),
@@ -58,31 +72,23 @@ $(document).ready(function() {
         loadTweets();
         $('.tweet-wrap').empty();
       })
-      .catch((err) => $("#empty-alert").slideDown("fast"));
+    } else if (remainingChar < 0){
+      $("#length-alert").slideDown("fast");
+      $(textArea).siblings(".tweet-footer").children("output").removeClass("negChars");
+    } else if (remainingChar === 140) {
+      $("#empty-alert").slideDown("fast");
+    }
     $(this).children('textarea').val('');
     $(this).children('div').children('output').val('140');
   });
 
-// New Tweet Loads to Main Page via AJAX
-  const loadTweets = function() {
-    $.ajax({method: 'GET',
-      url: '/tweets'})
-      .then(function(data) {
-        renderTweets(data);
-      });
-  };
-
 // Form Toggle Button using "Write a new tweet"
-  $("#new-tweet-header").on("mouseover", function(event) {
+  $("div.write-tweet").on("mouseover", function(event) {
     $(this).css("cursor", "pointer");
   });
 
-  $("#new-tweet-header").on("click", function(event) {
-    $(this)
-      .parent()
-      .parent()
-      .siblings(".container")
-      .children(".new-tweet")
+  $("div.write-tweet").on("click", function(event) {
+    $(".new-tweet")
       .slideToggle("fast", function() {
         $("#tweet-text").focus();
       });
